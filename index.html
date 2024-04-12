@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="tax-calculator"> 
+    <h2 class="text-center mb-4">Tax Calculator</h2>
+    <div class="tax-calculator-box">
+    <div class="form-group">
+        <label for="income">Gross Annual Income:</label> <button class="btn btn-sm btn-outline-info rounded-circle info-btn" data-toggle="tooltip" data-placement="right" title="Gross Annual Income is the total income earned in a year before deductions">!</button>
+  
+        <input type="number" class="form-control" id="income" placeholder="Enter Gross Annual Income">
+        <span class="error-icon error-message" id="income-error" data-toggle="tooltip" data-placement="right" title=""></span>
+         </div>
+    
+    <div class="form-group">
+        <label for="extraIncome">Extra Income:</label> <button class="btn btn-sm btn-outline-info rounded-circle info-btn" data-toggle="tooltip" data-placement="right" title="Extra Income is any additional income earned outside of the regular salary or wages">?</button>
+   
+        <input type="number" class="form-control" id="extraIncome" placeholder="Enter Extra Income">
+        <span class="error-icon error-message" id="extraIncome-error" data-toggle="tooltip" data-placement="right" title=""></span>
+      
+    </div>
+    <div class="form-group">
+        <label for="deductions">Deductions:</label>    <button class="btn btn-sm btn-outline-info rounded-circle info-btn" data-toggle="tooltip" data-placement="right" title="Deductions are expenses that can be subtracted from gross income to reduce the amount of income subject to tax">?</button>
+   
+        <input type="number" class="form-control" id="deductions" placeholder="Enter Deductions">
+        <span class="error-icon error-message" id="deductions-error" data-toggle="tooltip" data-placement="right" title=""></span>
+     </div>
+    <div class="form-group">
+        <label for="age">Age:</label> <button class="btn btn-sm btn-outline-info rounded-circle info-btn" data-toggle="tooltip" data-placement="right" title="Select the age group which corresponds to your age for tax calculation purposes">?</button>
+   
+        <select class="form-control" id="age">
+            <option value="" disabled selected>Select Age Group</option>
+            <option value="<40">40</option>
+            <option value="≥40 & <60">≥40 and 60</option>
+            <option value="≥60">≥60</option>
+        </select>
+        <span class="error-icon" id="age-error" data-toggle="tooltip" data-placement="right" title=""></span>
+        </div>
+    
+    <button class="btn btn-primary btn-block" onclick="calculateTax()">Calculate Tax</button>
+  </div>
+</div>
+  <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="resultModalLabel">Tax Calculation Result</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <!-- Result content will be inserted here -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="printResult()">Print</button>
+          <button type="button" class="btn btn-primary" onclick="downloadResult()">Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
